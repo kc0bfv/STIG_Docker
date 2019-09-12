@@ -1,7 +1,7 @@
 # Structured Threat Intelligence Graph (STIG) Execution Via Docker
 
 ## Purpose
-Make setup and execution of STIG simpler.  With this, it's simplified to just running a couple scripts.
+Make setup and execution of [STIG](https://github.com/idaholab/STIG) simpler.  With this, it's simplified to just running a couple scripts.
 
 ## Prerequisites
 You must have docker, sudo, netcat, and standard Linux SSH client tools (ssh, ssh-keygen) installed.
