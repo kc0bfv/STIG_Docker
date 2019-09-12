@@ -1,3 +1,5 @@
+#!/bin/bash
+
 mkdir -p share_dir
 
 sudo docker kill stig
