@@ -23,3 +23,6 @@ if ! [ -f ./id_rsa.pub ]; then ssh-keygen -f ./id_rsa -P ""; fi
 
 # Build the docker image
 sudo docker build -t stig .
+
+# Setup the STIG database
+./setup_database.sh
