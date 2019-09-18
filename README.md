@@ -15,7 +15,7 @@ First, build the "stig" Docker image: `./rebuild.sh`
 
 Next, run the STIG server: `./start_server.sh`
 
-Finally, open a separate command shell and run the GUI to connect to the server: `./run_gui.sh`
+Finally, open a separate command shell and run the GUI to connect to the server: `./run_gui.sh`.  The GUI should appear in your X11 session, along with a file explorer.  You can use the file explorer to drag and drop JSON files into STIG.
 
 ## Stopping the Server
 Run `./stop.sh`
