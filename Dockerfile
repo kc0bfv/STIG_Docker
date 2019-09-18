@@ -29,7 +29,7 @@ RUN echo -e 'xauth list $DISPLAY\nxauth add ...' > /tmp/xauth_howto
 COPY id_rsa.pub /root/.ssh/authorized_keys                                                                                                                                          
 
 # Setup and start orientdb database and SSH
-CMD (ORIENTDB_ROOT_PASSWORD=admin /orientdb/bin/server.sh &); (while ! nc -z localhost 2424; do echo Waiting for OrientDB; sleep 1; done); (cd /root/STIG/db_setup; ORIENTDB_HOME=/orientdb ./setup.sh) && (echo 'SET ignoreErrors true;DROP DATABASE remote:localhost/stig root admin plocal;SET ignoreErrors false;CREATE DATABASE remote:localhost/stig root admin plocal; IMPORT DATABASE /root/STIG/db_setup/stig.gz -preserveClusterIDs=true; SLEEP 1000' > /tmp/updated_import_db.txt) && /orientdb/bin/console.sh /tmp/updated_import_db.txt; ls /orientdb/databases; /usr/sbin/sshd -D
+#CMD (ORIENTDB_ROOT_PASSWORD=admin /orientdb/bin/server.sh &); (while ! nc -z localhost 2424; do echo Waiting for OrientDB; sleep 1; done); (cd /root/STIG/db_setup; ORIENTDB_HOME=/orientdb ./setup.sh) && (echo 'SET ignoreErrors true;DROP DATABASE remote:localhost/stig root admin plocal;SET ignoreErrors false;CREATE DATABASE remote:localhost/stig root admin plocal; IMPORT DATABASE /root/STIG/db_setup/stig.gz -preserveClusterIDs=true; SLEEP 1000' > /tmp/updated_import_db.txt) && /orientdb/bin/console.sh /tmp/updated_import_db.txt; ls /orientdb/databases; /usr/sbin/sshd -D
 
 # For debugging...
 #ENTRYPOINT /bin/bash
@@ -37,3 +37,4 @@ CMD (ORIENTDB_ROOT_PASSWORD=admin /orientdb/bin/server.sh &); (while ! nc -z loc
 
 # Maybe actual command...
 #ENTRYPOINT (export ORIENTDB_ROOT_PASSWORD=admin; /orientdb/bin/server.sh &); (while ! nc -z localhost 2424; do echo Waiting for OrientDB; sleep 1; done); npm start
+ENTRYPOINT /orientdb/bin/server.sh

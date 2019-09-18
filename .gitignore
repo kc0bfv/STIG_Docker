@@ -1,3 +1,6 @@
 id_rsa
 id_rsa.pub
 share_dir/
+orientdb_config/
+orientdb_backup/
+orientdb_databases/
